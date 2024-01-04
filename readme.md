@@ -74,7 +74,7 @@ A left join is used to return all records from the left table (the one that appe
 We can use this method with our sample data to get a list of all users (left table) and the posts (right table) they have made. If a user has not created any posts (as it is the case with Vivian Häfeli), the user will still be visible, but the post data will be `NULL`.
 
 ```sql
-SELECT users.name, posts.title, posts.body
+SELECT posts.title, posts.body, users.name
 FROM users
 LEFT JOIN posts ON users.id = posts.user_id;
 
@@ -89,7 +89,7 @@ A right join is used to return all records from the right table, and the matched
 This would be ideal if we want to list all posts (right table) regardless if the have a user (left table) or not. If a post does not belong to a user, the data for the user would be `NULL`.
 
 ```sql
-SELECT users.name, posts.title, posts.body
+SELECT posts.title, posts.body, users.name
 FROM users
 RIGHT JOIN posts ON users.id = posts.user_id;
 ```
